@@ -1,0 +1,41 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Page Loader */
+.page-loader {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-ring {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(201, 168, 76, 0.15);
+  border-top-color: var(--color-gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 3D perspective helpers */
+.perspective-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s ease;
+}
