@@ -123,19 +123,6 @@ const services = [
   { 
     icon: (
       <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="var(--color-gold)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M3 9h18M9 3v6M15 9v13" />
-      </svg>
-    ),
-    title: 'Kitchen', 
-    desc: 'Premium modular kitchens with German engineering and custom craftsmanship.', 
-    href: '/services', 
-    w: '3.6m', 
-    h: '4.2m' 
-  },
-  { 
-    icon: (
-      <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="var(--color-gold)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12h20M4 12v4a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-4" />
         <path d="M7 19v2M17 19v2" />
         <path d="M20 9V7a3 3 0 0 0-3-3h-2" />

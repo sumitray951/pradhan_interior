@@ -72,6 +72,6 @@ The client is configured to proxy API requests to `http://localhost:5000`.
 ## Contact
 
 For inquiries about The Pradhan Design Studio:
-- Email: pradhandesignstudios@gmail.com
+- Email: suprakashpradhan73@gmail.com
 - Phone: +91 62026 27874
-- Location: Bhubaneshwar, India
+- Location: Bhubaneshwar | Jamshedpur, India

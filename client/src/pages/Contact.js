@@ -6,7 +6,7 @@ import './Contact.css';
 
 
 
-const services = ['Residential Design', 'Commercial Design', 'Kitchen Design', 'Bathroom Design', '3D Visualization', 'Turnkey Project', 'Other'];
+const services = ['Residential Design', 'Commercial Design', 'Bathroom Design', '3D Visualization', 'Turnkey Project', 'Other'];
 const budgets = ['Under ₹5 Lakhs', '₹5–15 Lakhs', '₹15–30 Lakhs', '₹30–50 Lakhs', 'Above ₹50 Lakhs'];
 
 export default function Contact() {
@@ -68,9 +68,9 @@ export default function Contact() {
               <p className="section-subtitle" style={{ marginBottom: '3rem' }}>We'd love to hear about your project. Reach out and our team will get back to you within 24 hours.</p>
 
               {[
-                { label: 'Studio Address', value: 'Bhubaneshwar, India' },
+                { label: 'Studio Addresses', value: 'Bhubaneshwar | Jamshedpur, India' },
                 { label: 'Phone', value: '+91 62026 27874' },
-                { label: 'Email', value: 'pradhandesignstudios@gmail.com' },
+                { label: 'Email', value: 'suprakashpradhan73@gmail.com' },
                 { label: 'Working Hours', value: 'Monday – Saturday: 10am – 7pm\nSunday: By Appointment' },
               ].map((item) => (
                 <div key={item.label} className="contact-info-item">

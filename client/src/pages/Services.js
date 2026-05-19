@@ -42,23 +42,6 @@ const services = [
     w: '24.0m', h: '16.5m'
   },
   {
-    id: 3,
-    icon: (
-      <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="var(--color-gold)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M3 9h18M9 3v6M15 9v13" />
-      </svg>
-    ),
-    title: 'Kitchen Design',
-    tagline: 'The Heart of Your Home',
-    description: 'Our premium modular kitchens combine German engineering with Indian craftsmanship — designed for beauty, function, and durability.',
-    features: ['Modular Kitchen Layout', 'Custom Cabinetry Design', 'Countertop Selection', 'Appliance Integration', 'Storage Optimization', 'Lighting & Electrical Planning'],
-    price: 'Starting from ₹75,000',
-    duration: '4–8 weeks',
-    tag: 'Premium',
-    w: '4.2m', h: '4.8m'
-  },
-  {
     id: 4,
     icon: (
       <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="var(--color-gold)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">

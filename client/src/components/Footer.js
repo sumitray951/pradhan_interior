@@ -42,7 +42,7 @@ export default function Footer() {
           <div className="footer__nav">
             <h4 className="footer__heading">Services</h4>
             <ul>
-              {['Residential Design', 'Commercial Design', 'Kitchen Design', 'Bathroom Design', '3D Visualization', 'Turnkey Projects'].map(s => (
+              {['Residential Design', 'Commercial Design', 'Bathroom Design', '3D Visualization', 'Turnkey Projects'].map(s => (
                 <li key={s}><a href="/services" className="footer__link">{s}</a></li>
               ))}
             </ul>
@@ -53,13 +53,13 @@ export default function Footer() {
             <h4 className="footer__heading">Get In Touch</h4>
             <div className="footer__contact-items">
               <div className="footer__contact-item">
-                <span>Bhubaneshwar, India</span>
+                <span>Bhubaneshwar | Jamshedpur, India</span>
               </div>
               <div className="footer__contact-item">
                 <span>+91 62026 27874</span>
               </div>
               <div className="footer__contact-item">
-                <span>pradhandesignstudios@gmail.com</span>
+                <span>suprakashpradhan73@gmail.com</span>
               </div>
               <div className="footer__contact-item">
                 <span>Mon – Sat: 10am – 7pm</span>

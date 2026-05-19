@@ -8,8 +8,8 @@ import { Float, Stars, OrbitControls } from '@react-three/drei';
 
 // A Modernist Sofa/Couch Component
 export function SofaModel({ position = [0, 0, 0], wireframe = false, scale = 1 }) {
-  const colorBase = wireframe ? '#b88d30' : '#ECE6D9';
-  const colorCushion = wireframe ? '#b88d30' : '#FAF6F0';
+  const colorBase = wireframe ? '#b88d30' : '#806753';
+  const colorCushion = wireframe ? '#b88d30' : '#a38a75';
   const colorGold = '#b88d30';
 
   return (
@@ -150,7 +150,7 @@ export function FloorLampModel({ position = [0, 0, 0], wireframe = false, scale 
 // A Rotating Signature Modernist Lounge Chair Component
 export function SignatureLoungeChair({ position = [0, 0, 0], wireframe = false, scale = 1 }) {
   const colorGold = '#b88d30';
-  const colorCushion = wireframe ? '#b88d30' : '#FAF6F0';
+  const colorCushion = wireframe ? '#b88d30' : '#a38a75';
 
   return (
     <group position={position} scale={scale}>
@@ -357,11 +357,11 @@ function ArchitecturalRoomDraftScene({ wireframe = false }) {
       <group position={[1.9, -1.2, 0.4]} rotation={[0, -Math.PI / 3, 0]}>
         <mesh position={[0, -0.05, 0]}>
           <boxGeometry args={[0.8, 0.18, 0.8]} />
-          <meshStandardMaterial color={wireframe ? '#b88d30' : '#FAF6F0'} roughness={0.6} metalness={0.1} wireframe={wireframe} />
+          <meshStandardMaterial color={wireframe ? '#b88d30' : '#a38a75'} roughness={0.6} metalness={0.1} wireframe={wireframe} />
         </mesh>
         <mesh position={[0, 0.35, -0.32]}>
           <boxGeometry args={[0.8, 0.6, 0.12]} />
-          <meshStandardMaterial color={wireframe ? '#b88d30' : '#ECE6D9'} roughness={0.65} metalness={0.1} wireframe={wireframe} />
+          <meshStandardMaterial color={wireframe ? '#b88d30' : '#806753'} roughness={0.65} metalness={0.1} wireframe={wireframe} />
         </mesh>
         {[
           [-0.32, -0.4, 0.32],
@@ -445,7 +445,7 @@ function DiningRoomLayoutScene() {
           {/* Seat Cushion */}
           <mesh>
             <cylinderGeometry args={[0.22, 0.22, 0.06, 16]} />
-            <meshStandardMaterial color="#FAF6F0" roughness={0.6} metalness={0.1} />
+            <meshStandardMaterial color="#a38a75" roughness={0.6} metalness={0.1} />
           </mesh>
           {/* Stool Stand */}
           <mesh position={[0, -0.35, 0]}>
