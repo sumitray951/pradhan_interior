@@ -5,9 +5,17 @@
 }
 
 .services-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-cards-grid > * {
+  flex: 1 1 300px;
+  max-width: 355px;
 }
 
 .service-detail-card {
@@ -183,10 +191,8 @@
 }
 
 @media (max-width: 1024px) {
-  .services-cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
-  .services-cards-grid { grid-template-columns: 1fr; }
   .process-step { flex-direction: column; gap: 0.5rem; }
 }

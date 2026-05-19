@@ -153,11 +153,9 @@ export default function Services() {
                       ))}
                     </div>
                     <div className="service-detail-card__footer">
-                      <div>
-                        <div className="service-price">{svc.price}</div>
-                        <div className="service-duration">⏱ {svc.duration}</div>
-                      </div>
-                      <Link to="/contact" className="service-book-btn">Book Now</Link>
+                      <Link to="/contact" className="service-book-btn" style={{ width: '100%', textAlign: 'center', padding: '0.8rem 1.5rem' }}>
+                        Schedule a Meeting
+                      </Link>
                     </div>
                   </div>
                 </Tilt>

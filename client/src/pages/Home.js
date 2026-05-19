@@ -7,10 +7,23 @@ import './Home.css';
 
 
 
-// Interactive Blueprint-to-Solid 3D Before/After Slider
+// Interactive Blueprint-to-Solid Before/After Slider
 function DesignBeforeAfterSlider() {
   const [sliderPos, setSliderPos] = useState(50);
+  const [containerWidth, setContainerWidth] = useState(600);
   const containerRef = useRef();
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    setContainerWidth(containerRef.current.clientWidth);
+    const handleResize = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.clientWidth);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleMouseMove = (e) => {
     if (!containerRef.current) return;
@@ -36,30 +49,38 @@ function DesignBeforeAfterSlider() {
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
     >
-      {/* "Before" Layer: Blueprint Wireframe / Structural Grid */}
-      <div style={{ position: 'absolute', inset: 0, background: '#F4EFE6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div className="arch-grid-bg" style={{ opacity: 0.8 }} />
-        <ThreeScene variant="hero" wireframe={true} />
-        <div className="dimension-label-overlay" style={{ top: '20px', left: '20px' }}>📐 BLUEPRINT DRAFT [SCALE 1:50]</div>
-        <div className="dimension-label-overlay" style={{ bottom: '20px', right: '20px' }}>COORDINATE X: 14.8m</div>
+      {/* "Before" Layer: Blueprint Sketch / Draft */}
+      <div style={{ position: 'absolute', inset: 0 }}>
+        <img 
+          src="/luxury_villa_blueprint.png" 
+          alt="Villa Blueprint" 
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+        />
+        <div className="dimension-label-overlay" style={{ top: '20px', left: '20px' }}>📐 BLUEPRINT DRAFT</div>
       </div>
 
-      {/* "After" Layer: Finished Luxury Textured Solid Render */}
+      {/* "After" Layer: Finished Luxury Render */}
       <div 
         style={{ 
           position: 'absolute', 
-          inset: 0, 
+          left: 0,
+          top: 0,
+          bottom: 0,
           width: `${sliderPos}%`, 
           overflow: 'hidden', 
-          background: '#ffffff', 
           borderRight: '3px solid var(--color-gold)', 
           boxShadow: '0 0 30px rgba(184, 141, 48, 0.4)',
+          zIndex: 10,
           transition: 'width 0.05s ease-out'
         }}
       >
-        <div style={{ width: containerRef.current ? containerRef.current.clientWidth : '500px', height: '100%', position: 'relative', background: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <ThreeScene variant="hero" wireframe={false} />
-          <div className="dimension-label-overlay" style={{ top: '20px', left: '20px', background: 'var(--color-gold)', color: 'var(--color-bg)' }}>💎 FINISHED PREMIUM INTERIOR</div>
+        <div style={{ width: containerWidth, height: '100%', position: 'relative' }}>
+          <img 
+            src="/luxury_villa_render.png" 
+            alt="Villa Render" 
+            style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', left: 0, top: 0 }} 
+          />
+          <div className="dimension-label-overlay" style={{ top: '20px', left: '20px', background: 'var(--color-gold)', color: 'var(--color-bg)' }}>💎 FINISHED VILLA RENDER</div>
         </div>
       </div>
       
@@ -284,12 +305,12 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <div className="section-label">Featured Work</div>
-              <h2 className="section-title">The <em>Azure</em> Penthouse</h2>
+              <h2 className="section-title">The <em>Aura</em> Villa</h2>
               <p className="section-subtitle">
-                A 4,500 sq ft contemporary penthouse in South Mumbai with panoramic ocean views. Interact with our **Blueprint-to-Render slider** to see how we conceptualized and completed the layout from original draft to solid luxury.
+                A stunning 8,500 sq ft modernist luxury villa nestled in a premium coastal landscape. Interact with our **Blueprint-to-Render slider** to see how we conceptualized and completed the design from the architectural blueprint to the finished sunset render.
               </p>
               <div className="project-tags" style={{ marginBottom: '2rem' }}>
-                {['Contemporary', 'Luxury', 'Smart Home', 'Custom Furniture'].map(tag => (
+                {['Modernist Villa', 'Luxury Exterior', 'Landscape Design', 'Volumetric Light'].map(tag => (
                   <span key={tag} className="project-tag">{tag}</span>
                 ))}
               </div>

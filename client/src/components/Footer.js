@@ -21,10 +21,13 @@ export default function Footer() {
               Crafting spaces that transcend the ordinary. Where luxury meets purpose, and design becomes art.
             </p>
             <div className="footer__social">
-              <a href="https://www.instagram.com/interior_studio_new?igsh=MTduYjh0bWVvcnN0eg==" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="Instagram">I</a>
-              <a href="#!" className="footer__social-link" title="Pinterest">P</a>
-              <a href="#!" className="footer__social-link" title="Houzz">H</a>
-              <a href="#!" className="footer__social-link" title="LinkedIn">L</a>
+              <a href="https://www.instagram.com/the_pradhan_design_studio?igsh=ZDdjaXRkdGFuMnlvv" target="_blank" rel="noopener noreferrer" className="footer__social-link" title="Instagram">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
             </div>
           </div>
 
