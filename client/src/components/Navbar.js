@@ -32,7 +32,7 @@ export default function Navbar() {
         <div className="navbar__container">
           {/* Logo */}
           <Link to="/" className="navbar__logo">
-            <img src="/logo.png" alt="The Pradhan Design Studio" className="navbar__logo-img" />
+            <img src="/logo-new.png" alt="The Pradhan Design Studio" className="navbar__logo-img" />
             <div className="navbar__logo-text">
               <span className="logo-brand">THE PRADHAN</span>
               <span className="logo-sub">DESIGN STUDIO</span>

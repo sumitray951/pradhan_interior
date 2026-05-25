@@ -1,9 +1,11 @@
 .footer {
   position: relative;
-  background: var(--color-bg-2);
-  border-top: 1px solid var(--color-border);
+  /* subtle warm brown background for footer */
+  background: linear-gradient(180deg, rgba(151,107,77,0.06), rgba(151,107,77,0.08));
+  border-top: 1px solid rgba(151,107,77,0.12);
   overflow: hidden;
   margin-top: 6rem;
+  color: var(--color-ivory-dim);
 }
 
 .footer__glow {
@@ -22,6 +24,8 @@
   grid-template-columns: 1.5fr 1fr 1fr 1.4fr;
   gap: 4rem;
   padding: 5rem 0 4rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+  backdrop-filter: blur(2px);
 }
 
 /* Brand */

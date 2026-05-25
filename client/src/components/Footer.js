@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer__brand">
             <div className="footer__logo">
-              <img src="/logo.png" alt="The Pradhan Design Studio" className="footer__logo-img" />
+              <img src="/logo-new.png" alt="The Pradhan Design Studio" className="footer__logo-img" />
               <div>
                 <div className="footer__logo-name">THE PRADHAN</div>
                 <div className="footer__logo-sub">DESIGN STUDIO</div>

@@ -1,18 +1,19 @@
 /* ===== THE PRADHAN DESIGN STUDIO - GLOBAL STYLES ===== */
 :root {
-  --color-bg: #FAF6F0;
-  --color-bg-2: #F4EFE6;
-  --color-bg-3: #ECE6D9;
-  --color-surface: rgba(255, 255, 255, 0.65);
+  /* Updated palette based on provided logo */
+  --color-bg: #FBF8F6; /* soft ivory */
+  --color-bg-2: #F6F2EE;
+  --color-bg-3: #EFE7DF;
+  --color-surface: rgba(255, 255, 255, 0.8);
   --color-surface-2: #ffffff;
-  --color-gold: #b88d30;
-  --color-gold-light: #dcc58a;
-  --color-gold-dim: #96701f;
-  --color-ivory: #282218;
-  --color-ivory-dim: #5c5344;
+  --color-gold: #9b6f45; /* warm brown/gold */
+  --color-gold-light: #caa879;
+  --color-gold-dim: #6f4a2d;
+  --color-ivory: #2f241e; /* deep warm ivory for headings */
+  --color-ivory-dim: #766459;
   --color-white: #ffffff;
-  --color-text: #3c352a;
-  --color-text-muted: #7a7060;
+  --color-text: #3b2f2a; /* main text color */
+  --color-text-muted: #7d6f66; /* muted text */
   --color-border: rgba(184, 141, 48, 0.16);
   --color-border-hover: rgba(184, 141, 48, 0.4);
   --font-display: 'Playfair Display', serif;

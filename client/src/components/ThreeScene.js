@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Stars, OrbitControls } from '@react-three/drei';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 // ==========================================
 // 1. BESPOKE PROCEDURAL FURNITURE & ARCHITECTURAL MODELS
@@ -315,6 +316,76 @@ export function ArchitecturalColumnPedestal({ position = [0, 0, 0], scale = 1, r
   );
 }
 
+// Advanced high-fidelity furniture loader with graceful fallback to procedural models
+export function AdvancedFurnitureModel({ position = [0, -1.2, 0], scale = 1, wireframe = false }) {
+  const [loading, setLoading] = useState(true);
+  const [gltfScene, setGltfScene] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    const url = '/models/advanced_furniture.glb';
+    const loader = new GLTFLoader();
+
+    // Fetch as arrayBuffer to validate content and avoid dev-server HTML fallback
+    fetch(url)
+      .then(async (res) => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        const buffer = await res.arrayBuffer();
+        // Quick validation: check first byte for '<' (HTML) or 'g'(glTF) signature
+        const header = new Uint8Array(buffer, 0, 4);
+        const headerText = String.fromCharCode(header[0], header[1], header[2], header[3]);
+        // 'glTF' starts with 'g','l','T','F' — if it looks like HTML ('<' ) or not glTF, bail.
+        if (headerText[0] === '<' || headerText.indexOf('glTF') === -1) {
+          throw new Error('Not a valid GLB');
+        }
+        // Parse the arrayBuffer using GLTFLoader.parse
+        loader.parse(buffer, '', (parsed) => {
+          if (!cancelled) {
+            setGltfScene(parsed.scene);
+            setLoading(false);
+          }
+        }, (err) => {
+          if (!cancelled) {
+            console.warn('GLTF parse error', err);
+            setLoading(false);
+          }
+        });
+      })
+      .catch((e) => {
+        if (!cancelled) {
+          console.warn('Could not load GLB:', e.message || e);
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // While loading show nothing to avoid popping
+  if (loading) return null;
+
+  // If we successfully parsed a GLTF scene, render it
+  if (gltfScene) {
+    return (
+      <group position={position} scale={scale}>
+        <primitive object={gltfScene} rotation={[0, Math.PI / 6, 0]} scale={0.9} dispose={null} />
+      </group>
+    );
+  }
+
+  // On error or not available -> fallback procedural composition
+  return (
+    <group position={position} scale={scale}>
+      <SofaModel position={[-0.6, 0, -0.4]} scale={1.08} wireframe={wireframe} />
+      <CoffeeTableModel position={[0.18, 0, 0.9]} scale={1.05} wireframe={wireframe} />
+      <SignatureLoungeChair position={[1.9, 0, 0.4]} scale={0.95} wireframe={wireframe} />
+      <ArchitecturalColumnPedestal position={[-2.0, 0, 0.6]} scale={0.9} rotatingSculpture={true} />
+    </group>
+  );
+}
+
 // ==========================================
 // 2. THE COMPOSITE BUSINESS-THEMED SCENES
 // ==========================================
@@ -344,37 +415,8 @@ function ArchitecturalRoomDraftScene({ wireframe = false }) {
         <meshStandardMaterial color="#b88d30" wireframe opacity={wireframe ? 0.08 : 0.03} transparent />
       </mesh>
 
-      {/* Modular Sofa couch */}
-      <SofaModel position={[-0.8, -1.2, -0.6]} scale={1.05} wireframe={wireframe} />
-
-      {/* Marble Table */}
-      <CoffeeTableModel position={[0, -1.2, 0.9]} scale={1.0} wireframe={wireframe} />
-
-      {/* Arc Floor Lamp */}
-      <FloorLampModel position={[1.4, -0.9, -1.4]} scale={1.05} wireframe={wireframe} />
-
-      {/* Additional side chair in room */}
-      <group position={[1.9, -1.2, 0.4]} rotation={[0, -Math.PI / 3, 0]}>
-        <mesh position={[0, -0.05, 0]}>
-          <boxGeometry args={[0.8, 0.18, 0.8]} />
-          <meshStandardMaterial color={wireframe ? '#b88d30' : '#a38a75'} roughness={0.6} metalness={0.1} wireframe={wireframe} />
-        </mesh>
-        <mesh position={[0, 0.35, -0.32]}>
-          <boxGeometry args={[0.8, 0.6, 0.12]} />
-          <meshStandardMaterial color={wireframe ? '#b88d30' : '#806753'} roughness={0.65} metalness={0.1} wireframe={wireframe} />
-        </mesh>
-        {[
-          [-0.32, -0.4, 0.32],
-          [0.32, -0.4, 0.32],
-          [-0.32, -0.4, -0.32],
-          [0.32, -0.4, -0.32]
-        ].map((lp, i) => (
-          <mesh key={i} position={lp}>
-            <cylinderGeometry args={[0.02, 0.02, 0.5, 8]} />
-            <meshStandardMaterial color="#b88d30" metalness={0.9} roughness={0.1} wireframe={wireframe} />
-          </mesh>
-        ))}
-      </group>
+      {/* Advanced furniture composition (GLB if available, otherwise procedural fallback) */}
+      <AdvancedFurnitureModel position={[0, -1.2, 0]} scale={1.0} wireframe={wireframe} />
 
       {/* Decorative Floor Plan Dimension Lines */}
       {wireframe && (

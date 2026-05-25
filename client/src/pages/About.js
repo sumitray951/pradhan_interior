@@ -33,7 +33,7 @@ export default function About() {
             <br />Inspire Living
           </motion.h1>
           <motion.p className="page-hero__subtitle" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
-            Founded in 2012, The Pradhan Design Studio has been redefining luxury interior design across India with an unwavering commitment to excellence and creativity.
+            Founded in 2023, The Pradhan Design Studio has been redefining luxury interior design across India with an unwavering commitment to excellence and creativity.
           </motion.p>
         </div>
         <div className="page-hero__overlay" />
